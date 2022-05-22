@@ -4,21 +4,28 @@ import DogPics from "./DogPics";
 function App() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState("");
-  
+
+  //useEffect(() => {
+  //  console.log("App 1st useEffect called"),
+  //  [count]
+  //});
+
   useEffect(() => {
+    console.log('in App change text')
     document.title = text;
   }, [text]);
 
   useEffect(() => {
+    console.log('in App set TimeOut')
     setTimeout(() => setCount(0), 5000);
   }, []);
 
-  console.log("App Component rendering");
+  console.log("Component rendering");
 
   return (
     <div>
       <button onClick={() => setCount((count) => count + 1)}>
-          I have been Clicked {count} times
+        I've been clicked {count} times
       </button>
       <input
         type="text"
@@ -26,10 +33,9 @@ function App() {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <hr></hr>
       <DogPics />
     </div>
-  )
+  );
 }
 
 export default App;
