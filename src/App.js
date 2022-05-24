@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
-import DogPics from "./DogPics";
+//import DogPics from "./DogPics";
 
 function App() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState("");
 
-  //useEffect(() => {
-  //  console.log("App 1st useEffect called"),
-  //  [count]
-  //});
-
   useEffect(() => {
-    console.log('in App change text')
     document.title = text;
   }, [text]);
 
   useEffect(() => {
-    console.log('in App set TimeOut')
     setTimeout(() => setCount(0), 5000);
   }, []);
 
@@ -33,7 +26,6 @@ function App() {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <DogPics />
     </div>
   );
 }
